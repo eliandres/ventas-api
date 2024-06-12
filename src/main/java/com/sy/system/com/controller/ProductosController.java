@@ -32,41 +32,41 @@ public class ProductosController {
 
 	@Autowired
 	private IProductosService iProductoService;
-	
+
 	@GetMapping("/lista")
 	public ResponseEntity<List<Producto>> list() {
 		var resultado = iProductoService.lista();
 		return new ResponseEntity<>(resultado, HttpStatus.OK);
 	}
-	
+
 	@PostMapping("/guardar")
 	public ResponseEntity<ServiceResponse> guardar(@RequestBody Producto producto) {
 		ServiceResponse serviceResponse = new ServiceResponse();
 		int resultado = iProductoService.guardar(producto);
-		//TODO: process POST request
-		if(resultado == 1) {
+		// TODO: process POST request
+		if (resultado == 1) {
 			serviceResponse.setMessage("El registro fue guardado exitosamente!!!");
 		}
 		return new ResponseEntity<>(serviceResponse, HttpStatus.OK);
 	}
-	
+
 	@PutMapping("/actualizar")
 	public ResponseEntity<ServiceResponse> actualizar(@RequestBody Producto producto) {
 		ServiceResponse serviceResponse = new ServiceResponse();
 		int resultado = iProductoService.actualizar(producto);
-		//TODO: process POST request
-		if(resultado == 1) {
+		// TODO: process POST request
+		if (resultado == 1) {
 			serviceResponse.setMessage("El registro fue actualizado exitosamente!!!");
 		}
 		return new ResponseEntity<>(serviceResponse, HttpStatus.OK);
 	}
-	
+
 	@PutMapping("/eliminar/{id}")
 	public ResponseEntity<ServiceResponse> eliminar(@PathVariable int id) {
-		//TODO: process PUT request
+		// TODO: process PUT request
 		ServiceResponse serviceResponse = new ServiceResponse();
 		int resultado = iProductoService.eliminar(id);
-		if(resultado == 1) {
+		if (resultado == 1) {
 			serviceResponse.setMessage("El registro fue eliminado exitosamente!!!");
 		}
 		return new ResponseEntity<>(serviceResponse, HttpStatus.OK);

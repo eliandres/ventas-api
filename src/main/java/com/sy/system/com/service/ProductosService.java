@@ -9,9 +9,9 @@ import com.sy.system.com.models.Producto;
 import com.sy.system.com.repository.IProductosRepository;
 
 @Service
-public class ProductosService  implements IProductosService{
-	
-	@Autowired	
+public class ProductosService implements IProductosService {
+
+	@Autowired
 	private IProductosRepository iProductosRepository;
 
 	@Override
